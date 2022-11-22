@@ -71,8 +71,8 @@ public class CLasePrincipal {
     }
     public CLasePrincipal(  JTextField tata,JTextField cajaQuantum,
             JTextField cajaCPU , int nn){
-        ta =tata;
-        N = nn;
+        ta =tata; //tabla 
+        N = nn; //ns 
        // C =  new ColaAux(N);
       // QQ.meter(new PCB("P5"));
         QQ.meter(new PCB("P1"));
@@ -103,10 +103,9 @@ public class CLasePrincipal {
         Timer time  = new Timer();
          
         TimerTask tarea = new TimerTask() {
-            @Override
+            @Override 
             public void run() {
                 cajaQuantum.setText(Integer.toString(cqp+1));
-                //planificadorRR();
                 planificador();
                 cajaCPU.setText(CPU.reg);
                 MostrarColas();
@@ -126,7 +125,7 @@ public class CLasePrincipal {
             @Override
             public void run() {
                 cajaQuantum.setText(Integer.toString(cqp+1));
-                //planificadorRR();
+//                planificadorRR();
                 planificadorSecuencia2();
                 cajaCPU.setText(CPU.reg);
                 ta.setText(QQ.MostrarCola());
@@ -149,17 +148,17 @@ public class CLasePrincipal {
     
     public void planificadorRR(){
         cqp++;
-        if(cqp == 3 || finalizo(PRUN)){
+        if(cqp == 2 || finalizo(PRUN)){
             if(finalizo(PRUN)){
-                freeMen();
+                freeMen(); 
             }else{ //si os i hacr un proceso que ya este corriendo
                 PRUN.reg = CPU.reg;
                 
-                Q[0].meter(PRUN);
+                QQ.meter(PRUN);
                 //aqui terminaria el 1er if
                 }
             
-        PRUN = Q[0].sacar();
+        PRUN = QQ.sacar();
         cqp = 0;
         CPU.reg = PRUN.reg;
             
@@ -169,9 +168,9 @@ public class CLasePrincipal {
     
     public void planificador(){
         cqp++;
-        if(cqp == 2 || finalizo(PRUN)){
+        if(cqp == 1 || finalizo(PRUN)){
             if(finalizo(PRUN)){
-            freeMen();
+            freeMen(); 
             }else{ //si os i hacr un proceso que ya este corriendo
                 PRUN.reg = CPU.reg;
                 int i = PRUN.prioridad;
@@ -203,8 +202,7 @@ public class CLasePrincipal {
     }
 
     public int nextK(int k){
-        //Lenthg -1= 4 ya que solo hay 4 filas 
-        if(k < 1){
+        if(k < 3){
             k++;
         }else{
             k= 0; 
@@ -311,7 +309,7 @@ public class CLasePrincipal {
     
     
     //N procesos, nunca finalixan 
-    //caund oen Prun es atentido por 1ra vez recibe 1qxp y si es la 2da 2 qxp, 
+    //cuando un Prun es atentido por 1ra vez recibe 1qxp y si es la 2da 2 qxp, 
     //si es la 3ra recibe 1qxp y asi sucesivametne 1,2,1,2,1,2...
   //  int N = 5; //catnidad de elemetos en la cola
   //  ColaAux C = new ColaAux(N);

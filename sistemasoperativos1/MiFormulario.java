@@ -13,6 +13,7 @@ public class MiFormulario extends javax.swing.JFrame {
      //   C1 = new Cola();
      p1 = new CLasePrincipal(TsalidaQ1,TsalidaQ2,TsalidaQ3,TsalidaQ4,
              TsalidaQuantum,TxtSalidaCPU);
+     
      p2 = new CLasePrincipal(TsalidaQRR,
             TsalidaQuantumRR,TxtSalidaCPURR,5);
      
@@ -73,7 +74,7 @@ public class MiFormulario extends javax.swing.JFrame {
             }
         });
 
-        jButtonIniciar.setText("Iniciar RR");
+        jButtonIniciar.setText("Iniciar");
         jButtonIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonIniciarActionPerformed(evt);
@@ -141,7 +142,7 @@ public class MiFormulario extends javax.swing.JFrame {
             }
         });
 
-        jButtonIniciarRR.setText("Iniciar");
+        jButtonIniciarRR.setText("Iniciar RR");
         jButtonIniciarRR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonIniciarRRActionPerformed(evt);
@@ -218,20 +219,20 @@ public class MiFormulario extends javax.swing.JFrame {
                                                         .addGap(11, 11, 11)
                                                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                     .addComponent(TxtSalidaN, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(TEntradaP4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(TEntradaP2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                                 .addComponent(TEntradaP3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(439, 439, 439)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
                                         .addComponent(jButtonIniciarRR)
-                                        .addGap(12, 12, 12))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(TEntradaP4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))))
+                                        .addGap(62, 62, 62))))
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(81, 211, Short.MAX_VALUE))
+                .addGap(81, 207, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -326,14 +327,13 @@ public class MiFormulario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonDetenerActionPerformed
 
     private void jButtonIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarActionPerformed
-      //  Tsalida.append("Q onda putos"+"\n");
-      //  Tsalida.append(p1.run());
-      
-//       p1.prioridades(Integer.parseInt(TEntradaP1.getText()),
-//                    Integer.parseInt(TEntradaP2.getText()),
-//                    Integer.parseInt(TEntradaP3.getText()),
-//                    Integer.parseInt(TEntradaP4.getText()));
-      
+ 
+        int q1 = Integer.parseInt(TEntradaP1.getText()); 
+        int q2 = Integer.parseInt(TEntradaP2.getText()); 
+        int q3 = Integer.parseInt(TEntradaP3.getText()); 
+        int q4 = Integer.parseInt(TEntradaP4.getText()); 
+        
+       p1.prioridades(q1,q2,q3,q4);
       p1.run(TsalidaQuantum,TxtSalidaCPU);
            
     
